@@ -1,0 +1,66 @@
+@model ManagementSystem.Models.w_tenant
+
+@{
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>w_tenant</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.username)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.username)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.roomnumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.roomnumber)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.rent)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.rent)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.IdCardNumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.IdCardNumber)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

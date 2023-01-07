@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ManagementProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="w_admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="nickname" Type="varchar" MaxLength="30" />
+          <Property Name="power" Type="int" />
+          <Property Name="createtime" Type="date" />
+        </EntityType>
+        <EntityType Name="w_announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Title" Type="varchar(max)" Nullable="false" />
+          <Property Name="Content" Type="varchar(max)" Nullable="false" />
+          <Property Name="CreateDate" Type="date" Nullable="false" />
+          <Property Name="People" Type="varchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="w_room_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="link_name" Type="varchar" MaxLength="10" />
+          <Property Name="stop_car_area" Type="int" />
+          <Property Name="construct_date" Type="date" />
+          <Property Name="road_area" Type="int" />
+          <Property Name="room_area" Type="int" />
+          <Property Name="lh_area" Type="int" />
+          <Property Name="room_number" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="remark" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="w_system_params">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="w_tenant">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="roomnumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="rent" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdCardNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="isPayed" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ManagementProjectModelStoreContainer">
+          <EntitySet Name="w_admin" EntityType="Self.w_admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_announcement" EntityType="Self.w_announcement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_room_info" EntityType="Self.w_room_info" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_system_params" EntityType="Self.w_system_params" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="w_tenant" EntityType="Self.w_tenant" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ManagementProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="w_admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nickname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="power" Type="Int32" />
+          <Property Name="createtime" Type="DateTime" Precision="0" />
+          </EntityType>
+        <EntityContainer Name="ManagementProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="w_admin" EntityType="Self.w_admin" />
+          <EntitySet Name="w_room_info" EntityType="ManagementProjectModel.w_room_info" />
+          <EntitySet Name="w_system_params" EntityType="ManagementProjectModel.w_system_params" />
+          <EntitySet Name="w_announcement" EntityType="ManagementProjectModel.w_announcement" />
+          <EntitySet Name="w_tenant" EntityType="ManagementProjectModel.w_tenant" />
+        </EntityContainer>
+        <EntityType Name="w_room_info">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="link_name" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="stop_car_area" Type="Int32" />
+          <Property Name="construct_date" Type="DateTime" Precision="0" />
+          <Property Name="road_area" Type="Int32" />
+          <Property Name="room_area" Type="Int32" />
+          <Property Name="lh_area" Type="Int32" />
+          <Property Name="room_number" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="remark" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="w_system_params">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="w_announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="People" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="w_tenant">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="roomnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="rent" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdCardNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isPayed" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ManagementProjectModelStoreContainer" CdmEntityContainer="ManagementProjectEntities">
+          <EntitySetMapping Name="w_admin">
+            <EntityTypeMapping TypeName="ManagementProjectModel.w_admin">
+              <MappingFragment StoreEntitySet="w_admin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+                <ScalarProperty Name="nickname" ColumnName="nickname" />
+                <ScalarProperty Name="power" ColumnName="power" />
+                <ScalarProperty Name="createtime" ColumnName="createtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_room_info">
+            <EntityTypeMapping TypeName="ManagementProjectModel.w_room_info">
+              <MappingFragment StoreEntitySet="w_room_info">
+                <ScalarProperty Name="remark" ColumnName="remark" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="room_number" ColumnName="room_number" />
+                <ScalarProperty Name="lh_area" ColumnName="lh_area" />
+                <ScalarProperty Name="room_area" ColumnName="room_area" />
+                <ScalarProperty Name="road_area" ColumnName="road_area" />
+                <ScalarProperty Name="construct_date" ColumnName="construct_date" />
+                <ScalarProperty Name="stop_car_area" ColumnName="stop_car_area" />
+                <ScalarProperty Name="link_name" ColumnName="link_name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_system_params">
+            <EntityTypeMapping TypeName="ManagementProjectModel.w_system_params">
+              <MappingFragment StoreEntitySet="w_system_params">
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_announcement">
+            <EntityTypeMapping TypeName="ManagementProjectModel.w_announcement">
+              <MappingFragment StoreEntitySet="w_announcement">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="People" ColumnName="People" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="w_tenant">
+            <EntityTypeMapping TypeName="ManagementProjectModel.w_tenant">
+              <MappingFragment StoreEntitySet="w_tenant">
+                <ScalarProperty Name="isPayed" ColumnName="isPayed" />
+                <ScalarProperty Name="IdCardNumber" ColumnName="IdCardNumber" />
+                <ScalarProperty Name="rent" ColumnName="rent" />
+                <ScalarProperty Name="roomnumber" ColumnName="roomnumber" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,81 @@
+@model IEnumerable<ManagementSystem.Models.w_tenant>
+
+@{
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>
+          <input class="btn btn-success" onclick='location.href=("/Tenant/Create")' value="新增租客" />
+        </p>
+        <table class="table">
+          <tr>
+            <th>
+              @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+              @Html.DisplayNameFor(model => model.phone)
+            </th>
+            <th>
+              @Html.DisplayNameFor(model => model.roomnumber)
+            </th>
+            <th>
+              @Html.DisplayNameFor(model => model.rent)
+            </th>
+            <th>
+              @Html.DisplayNameFor(model => model.isPayed)
+            </th>
+            <th>
+              @Html.DisplayNameFor(model => model.IdCardNumber)
+            </th>
+            <th></th>
+          </tr>
+
+          @foreach (var item in Model)
+          {
+        <tr>
+          <td>
+            @Html.DisplayFor(modelItem => item.username)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.phone)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.roomnumber)
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.rent)
+          </td>
+          <td>
+            @*@Html.DisplayFor(modelItem => item.isPayed)*@
+            @if(item.isPayed == true)
+            { <div class="label-success" style="color:white;text-align:center;">已缴清</div>}
+            @if(item.isPayed == false)
+            { <div class="label-danger" style="color:white;text-align:center;">未缴清</div>}
+          </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.IdCardNumber)
+          </td>
+          <td>
+            @Html.ActionLink("编辑", "Edit", new { id = item.id }) |
+            @Html.ActionLink("删除", "Delete", new { id = item.id })
+          </td>
+        </tr>
+          }
+
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

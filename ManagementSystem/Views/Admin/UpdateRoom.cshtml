@@ -1,0 +1,85 @@
+
+@{
+  ViewBag.Title = "UpdateRoom";
+  Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>小区信息编辑</h3>
+      <form action="/Admin/UpdateRoom" method="post" onsubmit="return checkForm()">
+        <table class="table table-bordered" style="margin-top:10px;">
+          <tr>
+            <th style="text-align:right;">小区名称：</th>
+            <td>
+              @*隐藏id*@
+              <input type="hidden" name="id" value="@Model.id" />
+              <input type="text" name="name" value="@Model.name" class="form-control" />
+            </td>
+            <th style="text-align:right;">联系电话：</th>
+            <td><input type="text" name="phone" value="@Model.phone" class="form-control" /></td>
+          </tr>
+          <tr>
+            <th style="text-align:right;">主要负责人：</th>
+            <td><input type="text" name="link_name" value="@Model.link_name" class="form-control" /></td>
+            <th style="text-align:right;">停车面积：</th>
+            <td><input type="text" name="stop_car_area" value="@Model.stop_car_area" class="form-control" /></td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">建造日期：</th>
+            <td><input type="date" name="construct_date" value="@Model.construct_date" class="form-control" /></td>
+            <th style="text-align:right;">道路面积：</th>
+            <td><input type="text" name="road_area" value="@Model.road_area" class="form-control" /></td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">建造面积：</th>
+            <td><input type="text" name="room_area" value="@Model.room_area" class="form-control" /></td>
+            <th style="text-align:right;">绿化面积：</th>
+            <td><input type="text" name="lh_area" value="@Model.lh_area" class="form-control" /></td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">楼宇数量：</th>
+            <td><input type="number" name="room_number" value="@Model.room_number" class="form-control" /></td>
+            <th style="text-align:right;">小区地址：</th>
+            <td><input type="text" name="address" value="@Model.address" class="form-control" /></td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">小区说明：</th>
+            <td colspan="3"><input type="text" name="remark" value="@Model.remark" class="form-control" /></td>
+          </tr>
+          <tr>
+            <th colspan="4" style="text-align:center;">
+              <input type="submit" class="btn btn-danger" value="添加" />
+              <input type="button" class="btn btn-info" onclick="javascript: window.history.back()" value="返回" />
+              <h3 style="color:red">@ViewBag.notice</h3>
+            </th>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  function checkForm() {
+    if ($('[name="name"]').val().length < 1) {
+      alert("请输入小区名称！");
+      $('[name="name"]').focus();
+      return false;
+    }
+    if ($('[name="phone"]').val().length < 1) {
+      alert("请输入电话！");
+      $('[name="name"]').focus();
+      return false;
+    }
+    if ($('[name="address"]').val().length < 1) {
+      alert("请输入小区地址！");
+      $('[name="name"]').focus();
+      return false;
+    }
+  }
+</script>
+

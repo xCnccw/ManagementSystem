@@ -1,0 +1,30 @@
+@model IEnumerable<ManagementSystem.Models.w_announcement>
+
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-heading">New announcement</div>
+    <div class="panel-body">
+      <form action="/Announcement/Create" method="post">
+        <div class="form-group">
+          <label>标题</label>
+          <input type="text" name="Title" class="form-control" placeholder="Enter title">
+          <label>日期</label>
+          <input class="form-control text-box single-line" data-val="true" data-val-date="字段 createtime 必须是日期。" id="CreateDate" name="CreateDate" type="date" value="" placeholder="yyyy-MM-dd">
+
+          <label>内容</label>
+          <textarea name="Content" style="height:200px;" class="form-control" rows="3" placeholder="请输入"></textarea>
+          <label>修改人</label>
+          <input type="text" name="People" class="form-control" value="管理员">
+        </div>
+        <div class="form-group text-right" style="margin-top:20px">
+          <button type="submit" style="width:20%;" class="btn btn-danger">更新</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+@*@model ManagementSystem.Models.w_room_info;*@
+
+@{
+    ViewBag.Title = "RoomIndex";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3>小区信息管理</h3>
+      <table class="table table-bordered" style="margin-top:10px;">
+        @if (Model != null)
+        {
+          <tr>
+            <th style="text-align:right;">小区名称：</th>
+            <td>@Model.name</td>
+            <th style="text-align:right;">联系电话：</th>
+            <td>@Model.phone</td>
+          </tr>
+          <tr>
+            <th style="text-align:right;">主要负责人：</th>
+            <td>@Model.link_name</td>
+            <th style="text-align:right;">停车面积：</th>
+            <td>@Model.stop_car_area</td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">建造日期：</th>
+            <td>@Model.construct_date </td>
+            <th style="text-align:right;">道路面积：</th>
+            <td>@Model.road_area</td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">建造面积：</th>
+            <td>@Model.room_area</td>
+            <th style="text-align:right;">绿化面积：</th>
+            <td>@Model.lh_area</td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">楼宇数量：</th>
+            <td>@Model.room_number</td>
+            <th style="text-align:right;">小区地址：</th>
+            <td>@Model.address</td>
+          </tr>
+
+          <tr>
+            <th style="text-align:right;">小区说明：</th>
+            <td colspan="2">@Model.address</td>
+          </tr>
+
+        }
+        else
+        {
+          <tr>
+            <th style="text-align:center">
+              请先添加一条小区信息到数据库中
+              <a href="/Admin/AddRoom">添加小区</a>
+            </th>
+          </tr>
+        } 
+        @if (Session["power"]==null)
+        {
+          <tr>
+            <th colspan="4" style="text-align:center;">
+              <input type="button" class="btn btn-danger" onclick="javascript: window.location.href ='/Admin/UpdateRoom'" value="修改" />
+              <input type="button" class="btn btn-info" onclick="javascript: window.history.back()" value="返回" />
+            </th>
+          </tr>
+}
+      </table>
+    </div>
+  </div>
+</div>

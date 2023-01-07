@@ -1,0 +1,60 @@
+@model ManagementSystem.Models.w_system_params
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+<div class="container-fluid">
+  <div class="row cm-fix-height">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading" style="margin-bottom:20px;"><h2>系统参数编辑</h2></div>
+        @using (Html.BeginForm())
+        {
+          @Html.AntiForgeryToken()
+
+          <div class="form-horizontal" style="padding-right:20px;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group">
+              @Html.LabelFor(model => model.code, htmlAttributes: new { @class = "control-label col-md-2" })
+              <div class="col-md-10">
+                @Html.EditorFor(model => model.code, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.code, "", new { @class = "text-danger" })
+              </div>
+            </div>
+
+            <div class="form-group">
+              @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-2" })
+              <div class="col-md-10">
+                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+              </div>
+            </div>
+
+            <div class="form-group">
+              @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "control-label col-md-2" })
+              <div class="col-md-10">
+                <select name="type" class="form-control">
+                  <option value="">全部</option>
+                  <option value="功能信息">功能信息</option>
+                  <option value="单元信息">单元信息</option>
+                  <option value="装修标准">装修标准</option>
+                  <option value="朝向信息">朝向信息</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-offset-2 col-md-10"  align="center">
+                <input type="submit" value="保存" class="btn btn-success" style="width:20%;"/>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

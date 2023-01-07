@@ -1,0 +1,31 @@
+
+@{ Layout = "~/Views/Shared/_BackAdmin.cshtml";
+  ViewBag.Title = "Index";
+}
+<div class="container-fluid cm-container-white">
+  <h2 style="margin-top:0;">物业管理系统简介</h2>
+  <p>口袋帮出品™</p>
+</div>
+<div class="container-fluid">
+  <div class="row sm-fix-height">
+    <div class="col-sm-8">
+      <div class="panel panel-danger">
+        <div class="panel-heading">公告</div>
+        <div class="panel-body" style="min-height: 440px;">
+          <h1>@Model.Title</h1>
+          <h4><small>@Model.CreateDate</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>@Model.People</small></h4>
+          <h4>@Model.Content</h4>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-warning">
+        <div class="panel-heading">小区信息</div>
+        <div class="panel-body" style="min-height: 440px;">
+          <h3>南北通透，视野开阔...</h3>
+          <div class="col-lg-12" style="text-align:center;"><a class="alert-link" href="/Admin/RoomIndex">查看详情</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

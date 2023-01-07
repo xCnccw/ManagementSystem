@@ -1,0 +1,83 @@
+@model ManagementSystem.Models.w_tenant
+
+@{
+  Layout = "~/Views/Shared/_BackAdmin.cshtml";
+}
+
+
+<div class="form-horizontal">
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      @using (Html.BeginForm())
+      {
+@Html.AntiForgeryToken()
+
+
+      <div class="panel-body">
+        <h4>个人信息</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+          </div>
+        </div>
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.phone, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.phone, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+          </div>
+        </div>
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.roomnumber, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.roomnumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.roomnumber, "", new { @class = "text-danger" })
+          </div>
+        </div>
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.rent, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.rent, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.rent, "", new { @class = "text-danger" })
+          </div>
+        </div>
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.IdCardNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            @Html.EditorFor(model => model.IdCardNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IdCardNumber, "", new { @class = "text-danger" })
+          </div>
+        </div>
+
+        <div class="form-group">
+          @Html.LabelFor(model => model.isPayed, htmlAttributes: new { @class = "control-label col-md-2" })
+          <div class="col-md-10">
+            <div class="checkbox" style="padding-left:20px;">
+              @Html.EditorFor(model => model.isPayed)
+              @Html.ValidationMessageFor(model => model.isPayed, "", new { @class = "text-danger" })
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="保存" class="btn btn-danger" style="width:20%;" />
+          </div>
+        </div>
+      </div>
+      }
+
+    </div>
+  </div>
+</div>
+
